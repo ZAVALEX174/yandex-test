@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'Merriweather';
-  src: url('./Merriweather-Bold.ttf') format('otf');
+  src: url('./Merriweather-Bold.ttf') format('ttf');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -48,7 +48,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('./Montserrat-Medium.ttf') format('otf');
+  src: url('./Montserrat-Medium.ttf') format('ttf');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
