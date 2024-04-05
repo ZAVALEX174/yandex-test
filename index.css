@@ -9,6 +9,8 @@
 
 @import url('./style/participants/participants.css');
 
+@import url('./style/ticker-line/ticker-line.css');
+
 @import url('./style/schedule/schedule.css');
 
 @import url('./style/stages/stages.css');
