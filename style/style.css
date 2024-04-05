@@ -22,7 +22,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   min-height: 100vh;
-  /* font-family: "Golos Text", sans-serif; */
+  font-family: "Golos Text", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -49,7 +49,7 @@ body {
   min-height: 100vh;
 
   /* Задает шрифт для текста на странице. */
-  font-family: Arial, sans-serif;
+  /* font-family: "Golos Text", sans-serif; */
 
   /* Сглаживает шрифт для улучшения читаемости на экранах с высоким разрешением. */
   -webkit-font-smoothing: antialiased;

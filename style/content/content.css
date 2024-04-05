@@ -1,20 +1,10 @@
 .content {
-  /* background: url('../../images/bg.png'); */
-  /* background:  url('../../images/circl.png'), url('../../images/bg.png'),;
-  background-repeat: no-repeat; 
-  background-position: 0 0; */
-
-  /* mix-blend-mode: color-burn; */
   padding: 190px 0 132px 0;
 
-  background: url('../../images/white-chess-pieces-on-chess-board.png') right
-      bottom no-repeat,
-    url('../../images/white-chess-pieces-on-chess-board6.png') center bottom
-      no-repeat,
-    url('../../images/city.png') center bottom no-repeat,
-    url('../../images/circl.png') top right no-repeat,
-    url('../../images/Ellipse-Fon.png') top right no-repeat,
-    url('../../images/bg.png');
+  background: url('../../images/Group555.png') center/contain no-repeat,
+    url('../../images/image-23.png') center/cover;
+
+  /* filter: sepia(0.5); */
 }
 
 .content__container {

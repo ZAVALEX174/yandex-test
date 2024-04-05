@@ -1,13 +1,25 @@
 .tournament-support {
+  padding: 107px 0 91px;
 }
 
 .tournament-support__container {
+  display: flex;
+  gap: 64px;
 }
 
 .tournament-support__title {
+  max-width: 764px;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: #313131;
 }
 
-.tournament-support__title-actio n {
+.tournament-support__title-action {
+  font-weight: 700;
+  color: #f54932;
 }
 
 .tournament-support__image {
