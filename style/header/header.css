@@ -1,6 +1,8 @@
 .header {
   padding-top: 26px;
   margin-bottom: -66px;
+  position: relative;
+  z-index: 10;
 }
 .header__container {
 }
