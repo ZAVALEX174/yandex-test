@@ -39,12 +39,41 @@
 }
 
 .stages__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .stages__item {
+  display: flex;
+  padding: 20px;
+  border: 1px solid blue;
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #313131;
+  gap: 20px;
+}
+
+.stages__item-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  width: 36px;
+  height: 36px;
+  background: orange;
+  padding: 11px 13px;
 }
 
 .stages__item-desc {
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #313131;
 }
 
 .stages__wrapper-images {
