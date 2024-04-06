@@ -3,7 +3,8 @@
 }
 
 .stages__container {
-  display: grid;
+  /* display: grid; */
+  position: relative;
 }
 
 .stages__wrapper {
@@ -39,6 +40,7 @@
 }
 
 .stages__list {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -48,13 +50,29 @@
 .stages__item {
   display: flex;
   padding: 20px;
-  border: 1px solid blue;
   font-family: 'Golos Text', sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
   color: #313131;
   gap: 20px;
+  background: url('../../images/bg-stages.png');
+}
+
+.stages__item-area-horizontal {
+  grid-column-start: 2;
+  grid-column-end: 4;
+
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.stages__item-area-vertical {
+  grid-column-start: 3;
+  grid-column-end: 4;
+
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 .stages__item-count {
@@ -64,20 +82,31 @@
   border-radius: 60px;
   width: 36px;
   height: 36px;
-  background: orange;
+  background: #fff;
   padding: 11px 13px;
 }
 
 .stages__item-desc {
+  max-width: 446px;
   font-family: 'Golos Text', sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   color: #313131;
+  position: relative;
+  z-index: 5;
 }
 
 .stages__wrapper-images {
+  position: absolute;
+  right: -50px;
+  bottom: 0;
+  z-index: 10;
+  width: 390px;
+  z-index: 0;
 }
 
 .stages__image {
+  width: 100%;
+  object-fit: cover;
 }
