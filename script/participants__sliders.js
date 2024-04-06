@@ -196,6 +196,8 @@ const nextCard = () => {
   if (activCardPar >= cardListPar.length) activCardPar = 0;
   if (activCardBtn >= cardListBtn.length) activCardBtn = 0;
 
+  document.querySelector('.participants__slider').remove();
+
   nextCardGenerate();
   console.log(activCardName);
 }
@@ -209,6 +211,8 @@ const prevCard = () => {
   if (activCardName < 0) activCardName = cardListName.length - 1;
   if (activCardPar < 0) activCardPar = cardListPar.length - 1;
   if (activCardBtn < 0) activCardBtn = cardListBtn.length - 1;
+
+  document.querySelector('.participants__slider:last-child').remove();
 
   prevCardGenerate();
 }
