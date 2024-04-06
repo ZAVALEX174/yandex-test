@@ -1,11 +1,5 @@
 .content {
   padding: 190px 0 132px 0;
-
-  /* background: url('../../images/Group555.png') center/contain no-repeat,
-    url('../../images/image-23.png') center/cover; */
-
-  background: url('../../images/Group555.png') center/contain no-repeat, url('../../images/image-23.png');
-  /* filter: sepia(0.5); */
   position: relative;
   display: flex;
 
@@ -17,15 +11,15 @@
 
 .content::before {
   content: '';
-  /* width: 100%;
-  height: 100%; */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(233, 218, 204, 0.6);
-  
+  background-image: url('../../images/1920.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content__container {
@@ -34,7 +28,6 @@
   flex-direction: column;
   position: relative;
   z-index: 10;
-  /* margin: 0 auto 0 10px; */
   max-width: 542px;
 }
 
