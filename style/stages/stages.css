@@ -1,13 +1,41 @@
 .stages {
+  padding: 10px 0 20px;
 }
 
 .stages__container {
+  display: grid;
+}
+
+.stages__wrapper {
+  max-width: 806px;
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  grid-template-rows: repeat(2, 75px);
+  column-gap: 15px;
+  grid-template-areas:
+    'title title'
+    '. description';
 }
 
 .stages__title {
+  /* grid-column: span 2; */
+  grid-area: title;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #313131;
 }
 
 .stages__description {
+  grid-area: description;
+  max-width: 270px;
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #3057a2;
 }
 
 .stages__list {

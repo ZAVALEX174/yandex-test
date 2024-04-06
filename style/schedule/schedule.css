@@ -84,12 +84,12 @@
   color: #313131;
 }
 
-.schedule__table-subtitle_active {
+.schedule__table-subtitle-active {
   position: relative;
   margin-right: 12px;
 }
 
-.schedule__table-subtitle_active::before {
+.schedule__table-subtitle-active::before {
   content: '';
   position: absolute;
   border-bottom: 2px solid #f54932;
