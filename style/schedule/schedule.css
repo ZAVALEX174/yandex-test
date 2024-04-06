@@ -1,13 +1,28 @@
 .schedule {
+  padding: 46px 0 200px;
 }
 
 .schedule__container {
+  display: flex;
+  justify-content: end;
+  gap: 44px;
+  position: relative;
 }
 
-.schedule__image {
+.schedule__image::before {
+  content: '';
+  position: absolute;
+  top: -27px;
+  left: -27px;
+  bottom: 0;
+  right: 474px;
+  background-image: url('../../images/gross1png.png');
+  background-size: 65%;
+  background-repeat: no-repeat;
 }
 
-.schedule__img {
+.schedule__title-wrapper {
+  max-width: 704px;
 }
 
 .schedule__title {
@@ -17,6 +32,7 @@
   line-height: 1.35;
   text-transform: uppercase;
   color: #313131;
+  margin-bottom: 60px;
 }
 
 .schedule__title-action {
@@ -25,7 +41,6 @@
 }
 
 .schedule__table {
-  /* border: 1px solid orange; */
   display: grid;
   grid-template-columns: 306px 1fr;
   grid-template-rows: 40px 56px 56px 56px 40px;
@@ -35,11 +50,9 @@
 
 .schedule__table-title {
   border-top: 2px solid #d0d0d0;
-  /* padding: 16px 16px 16px 0; */
   display: flex;
   align-items: center;
   font-family: 'Golos Text', sans-serif;
-  /* grid-area: title; */
   font-weight: 400;
   font-size: 20px;
   line-height: 1.2;
@@ -62,10 +75,8 @@
   border-top: 2px solid #d0d0d0;
   border-left: 2px solid #d0d0d0;
   padding: 0 0 0 16px;
-  /* display: grid; */
   display: flex;
   align-items: center;
-  /* grid-area: subtitle; */
   font-family: 'Golos Text', sans-serif;
   font-weight: 600;
   font-size: 20px;
