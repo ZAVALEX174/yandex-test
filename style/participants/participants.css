@@ -2,15 +2,35 @@
 }
 
 .participants__container {
+  overflow: hidden;
 }
 
 .participants__title {
 }
 
 .participants__sliders-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.participants__management {
+}
+
+.prev-button {
+}
+
+.next-button {
 }
 
 .participants__slider {
+  max-width: 394px;
+  width: 100%;
+}
+
+.participants__sliders-line {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .participants__slider-image {
