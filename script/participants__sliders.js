@@ -46,7 +46,7 @@ const widthOffset = document.querySelector(
   '.participants__sliders-wrapper'
 ).clientWidth;
 sliderPlase.style.width = 3 * widthOffset + 'px';
-sliderPlase.style.height = widthOffset + 'px';
+sliderPlase.style.height = 470 + 'px';
 sliderPlase.style.left = '-' + widthOffset + 'px';
 
 let flag = true;
@@ -227,4 +227,4 @@ const animate = ({ duration, draw, removeElement }) => {
   });
 };
 
-setInterval(nextCard, 4000);
+// setInterval(nextCard, 4000);

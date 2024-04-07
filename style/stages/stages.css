@@ -104,9 +104,11 @@
   z-index: 10;
   width: 390px;
   z-index: 0;
+
 }
 
 .stages__image {
   width: 100%;
   object-fit: cover;
+  overflow: hidden;
 }

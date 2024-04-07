@@ -1,18 +1,31 @@
 .participants {
+  padding: 200px 0 140px;
 }
 
 .participants__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .participants__title {
+  align-self: start;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #313131;
+  margin-bottom: 60px;
 }
 
 .participants__sliders-wrapper {
-  width: 394px;
-  height: 520px;
+  display: flex;
+  /* justify-content: stretch; */
+  max-width: 396px;
   margin: 0 auto;
   border: 3px solid blue;
-  /*   overflow: hidden; */
+  
 }
 
 .participants__management {
@@ -27,29 +40,49 @@
 .participants__sliders-line {
   position: relative;
   display: flex;
-  gap: 50px;
+  gap: 60px;
 }
 
 .participants__slider {
   max-width: 394px;
+  width: 100%;
   position: relative;
   z-index: -1;
+  text-align: center;
 }
 
 .participants__slider-image {
-  max-width: 394px;
-  width: 100%;
-  min-height: 470px;
+  max-width: 320px;
   position: relative;
+  margin-bottom: 28px;
 }
 
 .participants__slider-title {
-  /* width: 100%; */
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #313131;
+  margin-bottom: 6px;
 }
 
 .participants__slider-description {
-  /* width: 100%; */
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #313131;
+  opacity: 0.6;
+  margin-bottom: 20px;
 }
 
 .participants__slider-btn {
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #3057a2;
+  padding: 12px;
+  border: 1px solid #3057a2;
+  border-radius: 62px;
 }
