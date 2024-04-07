@@ -33,7 +33,7 @@ const cardListBtn = [
   'Подробнее',
 ];
 
-console.log(cardListName.length - 1);
+// console.log(cardListName.length - 1);
 
 const prevBtn = document.querySelector('.prev-button');
 const nextBtn = document.querySelector('.next-button');
@@ -44,37 +44,17 @@ let activCardPar = 0;
 let activCardBtn = 0;
 
 const sliderPlase = document.querySelector('.participants__sliders-line');
-console.log(sliderPlase);
+const widtOffset = document.querySelector(
+  '.participants__sliders-wrapper'
+).clientWidth;
+sliderPlase.style.width = 3 * widtOffset + 'px';
+sliderPlase.style.left = '-' + widtOffset + 'px';
+sliderPlase.style.display = 'grid';
+sliderPlase.style.gap = '30' + 'px';
+sliderPlase.style.gridTemplateColumns =
+  '1' + 'fr' + ' ' + '1' + 'fr' + ' ' + '1' + 'fr';
 
 let flag = true;
-
-// const createSliderCards = () => {
-//   const card = document.createElement('div');
-//   card.classList.add('participants__slider');
-
-//   const cardImg = document.createElement('img');
-//   cardImg.classList.add('participants__slider-image');
-//   cardImg.alt = `${alt}`;
-//   console.log(cardImg);
-//   // cardImg.src = '../images/' + images[activCard];
-//   cardImg.src = img;
-
-// const cardTitle = document.createElement('h3');
-// cardTitle.classList.add('participants__slider-title');
-// cardTitle.textContent = title;
-
-// const cardParagrahp = document.createElement('p');
-// cardParagrahp.classList.add('participants__slider-description');
-// cardParagrahp.textContent = par;
-
-// const cardBtn = document.createElement('button');
-// cardBtn.classList.add('participants__slider-btn');
-// cardBtn.textContent = btn;
-
-//   card.append(cardImg, cardTitle, cardParagrahp, cardBtn)
-
-//   sliderPlase.append(card);
-// }
 
 const createSliderCards = () => {
   const item = document.createElement('div');
@@ -107,8 +87,6 @@ const createSliderCards = () => {
 
 const nextCardGenerate = () => {
   let nextCard = activCard + 1;
-  console.log(activCard);
-  console.log(nextCard);
   let nextCardName = activCardName + 1;
   let nextCardPar = activCardPar + 1;
   let nextCardBtn = activCardBtn + 1;
@@ -141,13 +119,10 @@ const nextCardGenerate = () => {
   item.append(img, nameCard, cardParagrahp, cardBtn);
 
   sliderPlase.append(item);
-  console.log(cardListName[0]);
 };
 
 const prevCardGenerate = () => {
   let prevCard = activCard - 1;
-  console.log(activCard);
-  console.log(prevCard);
   let prevCardName = activCardName - 1;
   let prevCardPar = activCardPar - 1;
   let prevCardBtn = activCardBtn - 1;
@@ -180,7 +155,7 @@ const prevCardGenerate = () => {
   item.append(img, nameCard, cardParagrahp, cardBtn);
 
   sliderPlase.prepend(item);
-  console.log(cardListName[5]);
+  // console.log(cardListName[5]);
 };
 
 const nextCard = () => {
@@ -191,16 +166,23 @@ const nextCard = () => {
   if (activCard >= cardList.length) activCard = 0;
   if (activCardName >= cardListName.length) {
     activCardName = 0;
-    console.log(activCardName);
+    // console.log(activCardName);
   }
   if (activCardPar >= cardListPar.length) activCardPar = 0;
   if (activCardBtn >= cardListBtn.length) activCardBtn = 0;
 
-  document.querySelector('.participants__slider').remove();
+  // document.querySelector('.participants__slider').remove();
 
   nextCardGenerate();
-  console.log(activCardName);
-}
+  cardAninate({
+    duration: 1000,
+    draw: function (progress) {
+      document.querySelector('.participants__slider').style.width =
+        widtOffset * (1 - progress) + 'px';
+    },
+    removeElement: document.querySelector('.participants__slider'),
+  });
+};
 
 const prevCard = () => {
   activCard--;
@@ -215,9 +197,24 @@ const prevCard = () => {
   document.querySelector('.participants__slider:last-child').remove();
 
   prevCardGenerate();
-}
+};
 
 createSliderCards();
 
 nextBtn.addEventListener('click', nextCard);
 prevBtn.addEventListener('click', prevCard);
+
+const cardAninate = ({ duration, draw, removeElement }) => {
+  const start = performance.now();
+
+  requestAnimationFrame(function cardAninate(time) {
+      let step = (time - start) / duration;
+      if (step > 1) step = 1;
+      draw(step);
+      if (step < 1) {
+        requestAnimationFrame(cardAninate);
+      } else {
+        removeElement.remove();
+      }
+    });
+};
