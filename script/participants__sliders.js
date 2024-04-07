@@ -1,10 +1,10 @@
 const cardList = [
-  'ostapBender.svg',
-  'ostapBender.svg',
-  'ostapBender.svg',
-  'ostapBender.svg',
-  'ostapBender.svg',
-  'ostapBender.svg',
+  'ostapBender2.svg',
+  'ostapBender2.svg',
+  'ostapBender2.svg',
+  'ostapBender2.svg',
+  'ostapBender2.svg',
+  'ostapBender2.svg',
 ];
 const cardListName = [
   'Хосе-Рауль Капабланка',
@@ -33,10 +33,8 @@ const cardListBtn = [
   'Подробнее',
 ];
 
-// console.log(cardListName.length - 1);
-
-const prevBtn = document.querySelector('.prev-button');
-const nextBtn = document.querySelector('.next-button');
+// const prevBtn = document.querySelector('.prev-button');
+// const nextBtn = document.querySelector('.next-button');
 
 let activCard = 0;
 let activCardName = 0;
@@ -44,15 +42,12 @@ let activCardPar = 0;
 let activCardBtn = 0;
 
 const sliderPlase = document.querySelector('.participants__sliders-line');
-const widtOffset = document.querySelector(
+const widthOffset = document.querySelector(
   '.participants__sliders-wrapper'
 ).clientWidth;
-sliderPlase.style.width = 3 * widtOffset + 'px';
-sliderPlase.style.left = '-' + widtOffset + 'px';
-sliderPlase.style.display = 'grid';
-sliderPlase.style.gap = '30' + 'px';
-sliderPlase.style.gridTemplateColumns =
-  '1' + 'fr' + ' ' + '1' + 'fr' + ' ' + '1' + 'fr';
+sliderPlase.style.width = 3 * widthOffset + 'px';
+sliderPlase.style.height = widthOffset + 'px';
+sliderPlase.style.left = '-' + widthOffset + 'px';
 
 let flag = true;
 
@@ -121,7 +116,7 @@ const nextCardGenerate = () => {
   sliderPlase.append(item);
 };
 
-const prevCardGenerate = () => {
+const prevCardGenerate = (w = false) => {
   let prevCard = activCard - 1;
   let prevCardName = activCardName - 1;
   let prevCardPar = activCardPar - 1;
@@ -153,12 +148,14 @@ const prevCardGenerate = () => {
   cardBtn.textContent = cardListBtn[prevCardBtn];
 
   item.append(img, nameCard, cardParagrahp, cardBtn);
+  if (w) item.style.width = 0;
 
   sliderPlase.prepend(item);
-  // console.log(cardListName[5]);
 };
 
 const nextCard = () => {
+  if (!flag) return;
+  flag = !flag;
   activCard++;
   activCardName++;
   activCardPar++;
@@ -166,25 +163,24 @@ const nextCard = () => {
   if (activCard >= cardList.length) activCard = 0;
   if (activCardName >= cardListName.length) {
     activCardName = 0;
-    // console.log(activCardName);
   }
   if (activCardPar >= cardListPar.length) activCardPar = 0;
   if (activCardBtn >= cardListBtn.length) activCardBtn = 0;
 
-  // document.querySelector('.participants__slider').remove();
-
   nextCardGenerate();
-  cardAninate({
-    duration: 1000,
+  animate({
+    duration: 500,
     draw: function (progress) {
       document.querySelector('.participants__slider').style.width =
-        widtOffset * (1 - progress) + 'px';
+        widthOffset * (1 - progress) + 'px';
     },
     removeElement: document.querySelector('.participants__slider'),
   });
 };
 
 const prevCard = () => {
+  if (!flag) return;
+  flag = !flag;
   activCard--;
   activCardName--;
   activCardPar--;
@@ -194,27 +190,41 @@ const prevCard = () => {
   if (activCardPar < 0) activCardPar = cardListPar.length - 1;
   if (activCardBtn < 0) activCardBtn = cardListBtn.length - 1;
 
-  document.querySelector('.participants__slider:last-child').remove();
+  // document.querySelector('.participants__slider:last-child').remove();
 
-  prevCardGenerate();
+  prevCardGenerate(true);
+  animate({
+    duration: 800,
+    draw: function (progress) {
+      document.querySelector('.participants__slider').style.width =
+        widthOffset * progress + 'px';
+    },
+    removeElement: document.querySelector('.participants__slider:last-child'),
+  });
 };
 
+const nextBtn = document
+  .querySelector('.next-button')
+  .addEventListener('click', nextCard);
+const prevBtn = document
+  .querySelector('.prev-button')
+  .addEventListener('click', prevCard);
 createSliderCards();
 
-nextBtn.addEventListener('click', nextCard);
-prevBtn.addEventListener('click', prevCard);
-
-const cardAninate = ({ duration, draw, removeElement }) => {
+const animate = ({ duration, draw, removeElement }) => {
   const start = performance.now();
 
-  requestAnimationFrame(function cardAninate(time) {
-      let step = (time - start) / duration;
-      if (step > 1) step = 1;
-      draw(step);
-      if (step < 1) {
-        requestAnimationFrame(cardAninate);
-      } else {
-        removeElement.remove();
-      }
-    });
+  requestAnimationFrame(function animate(time) {
+    let step = (time - start) / duration;
+    if (step > 1) step = 1;
+    draw(step);
+    if (step < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      removeElement.remove();
+      flag = true;
+    }
+  });
 };
+
+setInterval(nextCard, 4000);

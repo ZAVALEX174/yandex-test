@@ -2,15 +2,17 @@
 }
 
 .participants__container {
-  overflow: hidden;
 }
 
 .participants__title {
 }
 
 .participants__sliders-wrapper {
-  display: flex;
-  position: relative;
+  width: 394px;
+  height: 520px;
+  margin: 0 auto;
+  border: 3px solid blue;
+  /*   overflow: hidden; */
 }
 
 .participants__management {
@@ -22,24 +24,31 @@
 .next-button {
 }
 
-.participants__slider {
-  max-width: 394px;
-  width: 100%;
+.participants__sliders-line {
+  position: relative;
+  display: flex;
+  gap: 50px;
 }
 
-.participants__sliders-line {
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px; */
+.participants__slider {
+  max-width: 394px;
+  position: relative;
+  z-index: -1;
 }
 
 .participants__slider-image {
+  max-width: 394px;
+  width: 100%;
+  min-height: 470px;
+  position: relative;
 }
 
 .participants__slider-title {
+  /* width: 100%; */
 }
 
 .participants__slider-description {
+  /* width: 100%; */
 }
 
 .participants__slider-btn {
