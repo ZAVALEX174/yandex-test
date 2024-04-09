@@ -42,12 +42,13 @@ let activCardPar = 0;
 let activCardBtn = 0;
 
 const sliderPlase = document.querySelector('.participants__sliders-line');
+const prevSlideWidth = document.querySelector('.participants__sliders-line').clientWidth;
 const widthOffset = document.querySelector(
   '.participants__sliders-wrapper'
 ).clientWidth;
-sliderPlase.style.width = 3 * widthOffset + 'px';
+// sliderPlase.style.width =widthOffset / 3 + 'px';
 sliderPlase.style.height = 470 + 'px';
-sliderPlase.style.left = '-' + widthOffset + 'px';
+// sliderPlase.style.left = '-' + widthOffset + 'px';
 
 let flag = true;
 
@@ -117,6 +118,7 @@ const nextCardGenerate = () => {
 };
 
 const prevCardGenerate = (w = false) => {
+  // const prevCardGenerate = () => {
   let prevCard = activCard - 1;
   let prevCardName = activCardName - 1;
   let prevCardPar = activCardPar - 1;
@@ -166,6 +168,8 @@ const nextCard = () => {
   }
   if (activCardPar >= cardListPar.length) activCardPar = 0;
   if (activCardBtn >= cardListBtn.length) activCardBtn = 0;
+
+  // document.querySelector('.participants__slider').remove();
 
   nextCardGenerate();
   animate({
@@ -227,4 +231,4 @@ const animate = ({ duration, draw, removeElement }) => {
   });
 };
 
-// setInterval(nextCard, 4000);
+setInterval(nextCard, 4000);

@@ -16,16 +16,16 @@
   line-height: 1.2;
   text-transform: uppercase;
   color: #313131;
-  margin-bottom: 60px;
+  margin-bottom: 57px;
 }
 
 .participants__sliders-wrapper {
   display: flex;
-  /* justify-content: stretch; */
-  max-width: 396px;
   margin: 0 auto;
-  border: 3px solid blue;
-  
+  /* border: 3px solid blue; */
+  overflow: hidden;
+  width: 1100px;
+  /* justify-content: center; */
 }
 
 .participants__management {
@@ -40,19 +40,20 @@
 .participants__sliders-line {
   position: relative;
   display: flex;
-  gap: 60px;
+  gap: 75px;
 }
 
 .participants__slider {
-  max-width: 394px;
+  max-width: 316px;
   width: 100%;
   position: relative;
-  z-index: -1;
   text-align: center;
 }
 
 .participants__slider-image {
-  max-width: 320px;
+  width: 320px;
+  height: 320px;
+  /* width: 100%; */
   position: relative;
   margin-bottom: 28px;
 }
